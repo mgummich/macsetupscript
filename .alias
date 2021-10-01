@@ -1,0 +1,241 @@
+#!/usr/bin/env bash
+
+########################################################################################################################
+# Paths
+########################################################################################################################
+
+alias downloads="cd ~/Downloads"
+alias desktop="cd ~/Desktop"
+alias repos="cd ~/repos"
+alias dotfiles="cd ~/.dotfiles"
+alias home='cd ~'
+
+## get rid of command not found ##
+alias cd..='cd ..'
+ 
+## a quick way to get out of current directory ##
+alias ..='cd ..'
+alias ...='cd ../../../'
+alias ....='cd ../../../../'
+alias .....='cd ../../../../'
+alias .4='cd ../../../../'
+alias .5='cd ../../../../..'
+
+
+########################################################################################################################
+# LS
+########################################################################################################################
+
+# Detect which `ls` flavor is in use
+if ls --color > /dev/null 2>&1; then # GNU `ls`
+	colorflag="--color"
+	export LS_COLORS='no=00:fi=00:di=01;31:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:'
+else # macOS `ls`
+	colorflag="-G"
+	export LSCOLORS='BxBxhxDxfxhxhxhxhxcxcx'
+fi
+
+# List all files colorized in long format
+alias l="ls -lF ${colorflag}"
+
+# List all files colorized in long format, excluding . and ..
+alias la="ls -lAF ${colorflag}"
+
+# List only directories
+alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
+
+# Always use color output for `ls`
+alias ls="command ls ${colorflag}"
+
+
+########################################################################################################################
+# System
+########################################################################################################################
+
+# list all drives
+alias drives="df -h" 
+
+# Show/hide hidden files in Finder
+alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+
+# Hide/show all desktop icons (useful when presenting)
+alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+
+# Stuff I never really use but cannot delete either because of http://xkcd.com/530/
+alias stfu="osascript -e 'set volume output muted true'"
+alias pumpitup="osascript -e 'set volume output volume 100'"
+
+########################################################################################################################
+# Shortcuts
+########################################################################################################################
+
+# Reload shell
+alias reload="source $HOME/.zshrc"
+# Flush dns
+alias reloaddns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
+
+# copy shrug
+alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
+
+#clear
+alias c="clear"
+
+# edit hostfile
+alias hostfile="sudo nano /etc/hosts"
+
+# edit .zshrc
+alias zshconfig="nano $HOME/.zshrc"
+
+x
+
+########################################################################################################################
+# IP
+########################################################################################################################
+
+#return ip4
+alias ip="dig -4 TXT +short o-o.myaddr.l.google.com @ns1.google.com"
+#return ip6
+alias ip6="dig -6 TXT +short o-o.myaddr.l.google.com @ns1.google.com"
+#return local ip
+alias localip="ipconfig getifaddr en0"
+#return all ips displayed by ifconfig
+alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+
+# Return current ip4 / ip6 address and local ip
+function myip() {
+  echo "IP4: `dig -4 TXT +short o-o.myaddr.l.google.com @ns1.google.com`"
+  echo "IP6: `dig -6 TXT +short o-o.myaddr.l.google.com @ns1.google.com`"
+  echo "LOCAL: $(ipconfig getifaddr en0)"
+}
+
+########################################################################################################################
+# Helpful command
+########################################################################################################################
+
+# Recursively delete `.DS_Store` files
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+
+# Print each PATH entry on a separate line
+alias path='echo -e ${PATH//:/\\n}'
+
+# Get time
+alias now='date +"%T"'
+
+# Get date
+alias today='date +"%d-%m-%Y"'
+
+# Get week number
+alias week='date +%V'
+
+# make me a password
+genpw(){cat /dev/urandom | LC_ALL=C tr -dc 'a-zA-Z0-9-_.\$' | fold -w $1+1 | sed 1q }
+
+# File size
+alias filesize="stat -f \"%z bytes\""
+
+# Quick ping to check internet status
+alias net="ping google.com | grep -E --only-match --color=never '[0-9\.]+ ms'"
+
+# Get weather for berlin
+alias weather='curl -Acurl wttr.in/Berlin'
+
+# display files formatted
+alias bat='bat --color=always --style=header,grid'
+
+
+########################################################################################################################
+# Programs
+########################################################################################################################
+
+alias safari="open -a safari"
+alias firefox="open -a firefox"
+alias brave="open -a Brave\ Browser"
+alias chrome="open -a google\ chrome"
+
+# Launch installed browsers for a specific URL
+# Usage: browsers "http://www.google.com"
+function browsers(){
+	chrome $1
+	firefox $1
+	safari $1
+	brave $1
+}
+
+# VSCode
+alias code='open -a "/Applications/Visual Studio Code.app" "`pwd`"'
+
+########################################################################################################################
+# Wifi
+########################################################################################################################
+
+# Airport CLI alias
+alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport'
+
+# get wifi info
+alias wifi="airport -I"
+
+# scan all nearby wifis
+alias scanwifi="airport -s"
+
+# test wifi signal
+alias testsignal="while x=1; do airport -I | grep CtlRSSI; sleep 0.5; done"
+
+########################################################################################################################
+# helpful functions
+########################################################################################################################
+
+# rename multimedia images, videos, audios with exiftool to date time format¨
+# rename-multimedia -ext jpg .
+function renamemedia() {
+  exiftool -r -m -d "%Y-%m-%d %H.%M.%S%%-c.%%le" \
+    "-filename<FileInodeChangeDate" \
+    "-filename<ModifyDate" \
+    "-filename<CreateDate" \
+    "-filename<CreationDate" \
+    "-filename<DateTimeOriginal" \
+    -if '$filename !~ /^\./' \
+    -ext jpg -ext jpeg -ext png -ext gif -ext tif -ext tiff -ext heic \
+    -ext mp4 -ext avi -ext mov -ext mkv -ext m4v \
+    -ext raf \
+    "$@"
+}
+
+# converting all heic pictures in the current folder to jpgs
+function convertallheic(){
+    for file in $(find ./ -iname "*.HEIC" -print); do
+	 sips -s format jpeg $file --out "${file%.*}.JPG";
+	 touch -r $file "${file%.*}.JPG";
+    done
+	# 4
+	echo "Remove .HEIC files? [y/n]"
+	read remove
+	# 5
+	if [[ "$remove" == "y" ]]; then
+	find . -depth 1 -name "*.HEIC" -delete
+	fi
+}
+
+# converting a single heic picture to a jpg
+function convertheic(){
+    sips -s format jpeg $1 --out "${1%.*}.JPG";
+	touch -r $1 "${1%.*}.JPG";
+	echo "Do you want to remove $1? [y/n]"
+	read remove
+	# 5	
+	if [[ "$remove" == "y" ]]; then
+	rm -rf $1	
+	fi
+}
+
+# Removing metadata from a picture
+function removemetadata(){
+	exiftool -all= $1
+}
+
+########################################################################################################################
+# Simulators
+########################################################################################################################
+alias ios="open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"
+alias watchos="open /Applications/Xcode.app/Contents/Developer/Applications/Simulator\ \(Watch\).app"
