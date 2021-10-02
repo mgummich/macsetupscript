@@ -36,4 +36,9 @@ echo '[ -s "$(brew --prefix nvm)/etc/bash_completion.d/nvm" ] && . "$(brew --pre
 ## Pyen config
 echo 'eval "$(pyenv init --path)"' >> ~/.zshrc
 
+## creating folders
+mkdir $HOME/screenshots
+mkdir $HOME/.dotfiles
+mkdir $HOME/repos
+
 source .macos
