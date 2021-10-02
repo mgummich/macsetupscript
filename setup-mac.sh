@@ -36,11 +36,4 @@ echo '[ -s "$(brew --prefix nvm)/etc/bash_completion.d/nvm" ] && . "$(brew --pre
 ## Pyen config
 echo 'eval "$(pyenv init --path)"' >> ~/.zshrc
 
-## ZSH config
-# Install powerlevel10k
-echo 'source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme' >>! ~/.zshrc
-
-#Install autosuggestions
-echo 'source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh' >>! ~/.zshrc
-
 source .macos
