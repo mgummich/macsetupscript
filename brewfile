@@ -69,6 +69,8 @@ brew 'neofetch'
 # Automake is a tool for automatically generating Makefile installation files.
 brew 'automake'
 
+brew 'ruby'
+
 ##
 # Some GNU command line tools already exist by default on OS X.
 # We choose to replace these with newer versions.
