@@ -1314,9 +1314,9 @@ ScreenShot() {
 
   # ========== Remove timestamp ==========
   # - Remove
-  defaults write com.apple.screencapture include-date -bool false
+  #defaults write com.apple.screencapture include-date -bool false
   # - Default
-  # defaults write com.apple.screencapture include-date -bool true
+   defaults write com.apple.screencapture include-date -bool true
 }
 
 ## ----------------------------------------
