@@ -1310,7 +1310,7 @@ ScreenShot() {
   # - Default
   # defaults delete com.apple.screencapture name
   # - Custom
-  defaults write com.apple.screencapture name -string "ss"
+  defaults write com.apple.screencapture name -string "Screenshot"
 
   # ========== Remove timestamp ==========
   # - Remove
