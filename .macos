@@ -1290,7 +1290,7 @@ ScreenShot() {
   # - Default
   # defaults write com.apple.screencapture location -string "$HOME/Desktop"
   # - Custom
-  defaults write com.apple.screencapture location -string "$HOME/Downloads"
+  defaults write com.apple.screencapture location -string "$HOME/screenshots"
 
   # ========== Set Screenshots format ==========
   # - png
