@@ -1,19 +1,5 @@
 ###########################################################################
 #
-# Tap brew
-#
-###########################################################################
-# Updated Grep
-brew tap homebrew/dupes
-
-# Caskroom fonts
-brew tap caskroom/fonts
-
-# powerlevel10k
-brew tap romkatv/powerlevel10k
-
-###########################################################################
-#
 # brew install
 #
 ###########################################################################
@@ -50,15 +36,12 @@ brew 'nvm'
 brew 'tree'
 # Keep your Mac's application settings in sync
 brew 'mackup'
-brew 'powerlevel10k'
 # Python version management
 brew 'pyenv'
 # JavaScript package manager
 brew 'yarn'
 # Perl lib for reading and writing EXIF metadata
 brew 'exiftool'
-# Monitors computer mic and webcam
-brew 'oversight'
 # Clone of cat with syntax highlighting and Git integration
 brew 'bat'
 # Fast, highly customisable system info script
@@ -108,7 +91,7 @@ cask 'cyberduck'
 cask 'keka'
 cask 'sequel-ace'
 cask 'vlc'
-cask 'java'
+#cask 'java'
 #Tools for building Android applications
 cask 'android-studio'
 # Android SDK component
