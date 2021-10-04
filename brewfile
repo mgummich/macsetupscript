@@ -106,7 +106,7 @@ cask 'rectangle'
 # Install apps from app store using mas
 #
 ###########################################################################
-mas install 1352778147 # Bitwarden
-mas install 497799835 # XCode
-mas install 1451685025 # Wireguard
-mas install 585829637 # Todoist
+mas "Bitwarden", id: 1352778147 # Bitwarden
+mas "Xcode", id: 497799835 # XCode
+mas "Wireguard", id: 1451685025 # Wireguard
+mas "Todoist", id: 585829637 # Todoist
