@@ -96,7 +96,10 @@ cask 'vlc'
 cask 'android-studio'
 # Android SDK component
 cask 'android-platform-tools'
-
+# Monitors computer mic and webcam
+cask 'oversight'
+#Move and resize windows using keyboard shortcuts or snap areas
+cask 'rectangle'
 
 ###########################################################################
 #
