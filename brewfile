@@ -105,6 +105,8 @@ cask 'oversight'
 cask 'rectangle'
 # Virtual machines UI using QEMU
 cask 'utm'
+# Finds duplicate files in a computer system
+cask 'dupeguru'
 
 ###########################################################################
 #
