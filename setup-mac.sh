@@ -5,26 +5,52 @@ echo 'Hide last Login'
 echo '-----------------'
 touch $HOME/.hushlogin
 
-# Check for Homebrew,
-# Install if we don't have it
-echo 'Checking if Hombrew is installed and if not installing it'
-echo '-----------------'
-if test ! $(which brew); then
-  echo "Installing homebrew..."1
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-fi
+install_rosetta() {
+    sudo softwareupdate --install-rosetta
+}
 
-# Run Doctor
-brew doctor
+install_brew() {
+    if ! command -v "brew" &> /dev/null; then
+        printf "Homebrew not found, installing."
+        # install homebrew
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        # set path
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+    fi
 
-# Update homebrew recipes
-brew update
+    printf "Installing homebrew packages..."
+    brew update
+    # Upgrade any already installed formulae
+    brew upgrade
+    brew bundle
+    brew doctor
+}
 
-# Upgrade any already installed formulae
-brew upgrade
+create_dirs() {
+    declare -a dirs=(
+        "$HOME/screenshots"
+        "$HOME/.dotfiles"
+        "$HOME/repos"
+    )
 
-# Install all our dependencies with bundle (See Brewfile)
-brew bundle
+    for i in "${dirs[@]}"; do
+        mkdir "$i"
+    done
+}
+
+build_xcode() {
+    if ! xcode-select --print-path &> /dev/null; then
+        xcode-select --install &> /dev/null
+
+        until xcode-select --print-path &> /dev/null; do
+            sleep 5
+        done
+
+        sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
+
+        sudo xcodebuild -license
+    fi
+}
 
 ## NVM / NPM Config
 mkdir $HOME/.nvm
@@ -35,9 +61,18 @@ echo '[ -s "$(brew --prefix nvm)/etc/bash_completion.d/nvm" ] && . "$(brew --pre
 ## Pyen config
 echo 'eval "$(pyenv init --path)"' >> ~/.zshrc
 
-## creating folders
-mkdir $HOME/screenshots
-mkdir $HOME/.dotfiles
-mkdir $HOME/repos
+printf "🌈  Installing Rosetta\n"
+install_rosetta
+
+printf "🗄  Creating directories\n"
+create_dirs
+
+printf "🛠  Installing Xcode Command Line Tools\n"
+build_xcode
+
+printf "🍺  Installing Homebrew packages\n"
+install_brew
 
 source .macos
+
+printf "✨  Done!\n"
