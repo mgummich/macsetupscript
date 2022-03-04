@@ -1,3 +1,5 @@
+#Set cask install path 
+cask_args appdir: "/Applications"
 ###########################################################################
 #
 # brew install
