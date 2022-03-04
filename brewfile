@@ -103,6 +103,8 @@ cask 'android-platform-tools'
 cask 'oversight'
 #Move and resize windows using keyboard shortcuts or snap areas
 cask 'rectangle'
+# Virtual machines UI using QEMU
+cask 'utm'
 
 ###########################################################################
 #
