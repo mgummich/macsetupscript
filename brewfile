@@ -94,7 +94,6 @@ cask 'cyberduck'
 cask 'keka'
 cask 'sequel-ace'
 cask 'vlc'
-#cask 'java'
 #Tools for building Android applications
 cask 'android-studio'
 # Android SDK component
