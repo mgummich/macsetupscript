@@ -48,11 +48,12 @@ brew 'exiftool'
 brew 'bat'
 # Fast, highly customisable system info script
 brew 'neofetch'
-
 # Automake is a tool for automatically generating Makefile installation files.
 brew 'automake'
-
+# Powerful, clean, object-oriented scripting language
 brew 'ruby'
+# Upgrade all the things
+brew 'topgrade'
 
 ##
 # Some GNU command line tools already exist by default on OS X.
