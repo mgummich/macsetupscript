@@ -1,5 +1,6 @@
 #Set cask install path 
 cask_args appdir: "/Applications"
+
 ###########################################################################
 #
 # brew install
@@ -100,7 +101,7 @@ cask 'android-studio'
 cask 'android-platform-tools'
 # Monitors computer mic and webcam
 cask 'oversight'
-#Move and resize windows using keyboard shortcuts or snap areas
+# Move and resize windows using keyboard shortcuts or snap areas
 cask 'rectangle'
 # Virtual machines UI using QEMU
 cask 'utm'
