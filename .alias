@@ -9,6 +9,9 @@ alias desktop="cd ~/Desktop"
 alias repos="cd ~/repos"
 alias dotfiles="cd ~/.dotfiles"
 alias home='cd ~'
+alias dockerhome="cd ~/docker"
+alias ssh='cd ~/.ssh'
+alias screenshots='cd ~/screenshots'
 
 ## get rid of command not found ##
 alias cd..='cd ..'
