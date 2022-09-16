@@ -79,12 +79,18 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 alias stfu="osascript -e 'set volume output muted true'"
 alias pumpitup="osascript -e 'set volume output volume 100'"
 
+
+
 ########################################################################################################################
 # Shortcuts
 ########################################################################################################################
 
+# sudo
+alias sudo ="sudo "
+
 # Reload shell
 alias reload="source $HOME/.zshrc"
+
 # Flush dns
 alias reloaddns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 
