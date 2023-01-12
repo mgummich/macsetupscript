@@ -54,16 +54,17 @@ brew 'automake'
 brew 'ruby'
 # Upgrade all the things
 brew 'topgrade'
-
 ##
 # Some GNU command line tools already exist by default on OS X.
 # We choose to replace these with newer versions.
 ##
-
 brew 'gpatch'
 brew 'm4'
 brew 'make'
 brew 'nano'
+brew 'yq'
+# Password generator
+brew 'pwgen'
 
 
 ###########################################################################
