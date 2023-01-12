@@ -132,7 +132,5 @@ cask 'joplin'
 # Install apps from app store using mas
 #
 ###########################################################################
-mas "Bitwarden", id: 1352778147 # Bitwarden
 mas "Wireguard", id: 1451685025 # Wireguard
 mas "Todoist", id: 585829637 # Todoist
-mas "Xcode", id: 497799835 # XCode
