@@ -104,6 +104,28 @@ cask 'rectangle'
 cask 'utm'
 # Finds duplicate files in a computer system
 cask 'dupeguru'
+# Open-source screen recorder built with web technology
+cask 'kap'
+# Meet, chat, call, and collaborate in just one place
+cask 'microsoft-teams'
+# Desktop password and login vault
+cask 'bitwarden'
+# Web browser
+cask 'waterfox'
+# Imaging utility to install operating systems to a microSD card
+cask 'raspberry-pi-imager'
+# Instant messaging application focusing on security
+cask 'signal'
+# Desktop client for Telegram messenger
+cask 'telegram-desktop'
+# Tool to control external monitor brightness & volume
+cask 'monitorcontrol'
+# Open-source video transcoder
+cask 'handbrake'
+# Free and open-source page layout program
+cask 'topgrade'
+# Note taking and to-do application with synchronization capabilities
+cask 'joplin'
 
 ###########################################################################
 #
