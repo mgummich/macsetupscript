@@ -134,3 +134,8 @@ cask 'joplin'
 ###########################################################################
 mas "Wireguard", id: 1451685025 # Wireguard
 mas "Todoist", id: 585829637 # Todoist
+mas "Microsoft Outlook", id: 985367838  # Microsoft Outlook
+mas "Microsoft Word", id: 462054704  # Microsoft Word
+mas "Microsoft Excel", id: 462058435  # Microsoft Excel
+mas "Microsoft PowerPoint", id: 462062816  # Microsoft PowerPoint
+mas "Xcode", id: 497799835 # XCode
