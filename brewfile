@@ -14,7 +14,6 @@ brew 'zsh'
 # Version control
 brew 'git'
 brew 'python3'
-brew 'ssh-copy-id'
 # command line editor
 brew 'vim'
 # m-cli is a macOS command line tool that lets you interact with utilities
